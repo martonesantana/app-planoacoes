@@ -53,7 +53,7 @@ class DetalheAcao(models.Model):
     detalhe = models.CharField('Detalhes', max_length=100)
     data = models.DateField('Data')
     status = models.CharField('Status', max_length = 100, choices=STATUS_CHOICES, default='Andamento')
-    valor = models.DecimalField('Valor', max_digits=5, decimal_places=2,default=0)
+    valor = models.DecimalField('Valor', max_digits=20, decimal_places=2,default=0)
 
     class Meta:
         verbose_name = 'Detalhes da Ação'
