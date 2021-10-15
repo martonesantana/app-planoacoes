@@ -15,8 +15,6 @@ class CausaSerializer(serializers.ModelSerializer):
 
 
 class AcaoSerializer(serializers.ModelSerializer):
-    causas = CausaSerializer(many=True)
-
     class Meta:
         model = models.Acao
         fields = '__all__'
@@ -27,4 +25,4 @@ class DetalheAcaoSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = models.DetalheAcao
-        fields = '__all__'
+        fields = ('id', 'detalhe', 'data', 'acoes' , 'status', 'valor')
