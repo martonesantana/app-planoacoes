@@ -13,15 +13,15 @@ class CausaSerializer(serializers.ModelSerializer):
         model = models.Causa
         fields = '__all__'
 
-class DetalheAcaoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.DetalheAcao
-        fields = '__all__'
 
 class AcaoSerializer(serializers.ModelSerializer):
-    acoes=DetalheAcaoSerializer(read_only=True, many=True)
     class Meta:
         model = models.Acao
         fields = '__all__'
 
+class DetalheAcaoSerializer(serializers.ModelSerializer):
+    acoes=AcaoSerializer(read_only=True, many=True)
+    class Meta:
+        model = models.DetalheAcao
+        fields = '__all__'
 
