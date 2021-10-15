@@ -24,4 +24,4 @@ class DetalheAcaoSerializer(serializers.ModelSerializer):
     acoes = serializers.StringRelatedField(many=True)
     class Meta:
         model = models.DetalheAcao
-        fields = '__all__'
+        fields = ('detalhe','acoes')
