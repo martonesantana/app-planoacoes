@@ -7,24 +7,24 @@ from rest_framework.permissions import IsAuthenticated
 
 class SituacaoViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    serializer_class = serializers.SituacaoSerializer
     queryset = models.Situacao.objects.all()
+    serializer_class = serializers.SituacaoSerializer
 
 
 class CausaViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    serializer_class = serializers.CausaSerializer
     queryset = models.Causa.objects.all()
+    serializer_class = serializers.CausaSerializer
 
 
 class AcaoViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    serializer_class = serializers.AcaoSerializer
     queryset = models.Acao.objects.all()
+    serializer_class = serializers.AcaoSerializer
 
 
 class DetalheAcaoViewSet(viewsets.ModelViewSet):
     permission_classes = (IsAuthenticated,)
-    serializer_class = serializers.DetalheAcaoSerializer
     queryset = models.DetalheAcao.objects.all()
+    serializer_class = serializers.DetalheAcaoSerializer
 
