@@ -33,7 +33,7 @@ class Causa(models.Model):
 
 
 class Acao(models.Model):
-    causas = models.ForeignKey(Causa, on_delete=models.CASCADE, related_name='causas')
+    causa = models.ForeignKey(Causa, on_delete=models.CASCADE, related_name='causas')
     acao = models.CharField('Ação', max_length=100)
     valor = models.DecimalField('Valor', max_digits=20, decimal_places=2)
 
