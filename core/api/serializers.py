@@ -9,8 +9,6 @@ class SituacaoSerializer(serializers.ModelSerializer):
 
 
 class CausaSerializer(serializers.ModelSerializer):
-    situacoes = SituacaoSerializer(many=True)
-
     class Meta:
         model = models.Causa
         fields = '__all__'
