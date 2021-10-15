@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.views.generic import RedirectView
 
 
 from rest_framework import routers
@@ -29,7 +30,7 @@ route.register(r'detalheacao', situacaoviewsets.DetalheAcaoViewSet, basename="De
 
 
 urlpatterns = [
-    
+    path('', RedirectView.as_view(url='/app/')),
     path('app/', admin.site.urls),
     path('api/', include(route.urls)),
        
