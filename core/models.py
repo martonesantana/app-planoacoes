@@ -20,7 +20,7 @@ class Situacao(models.Model):
 
 
 class Causa(models.Model):
-    situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE)
+    situacao = models.ForeignKey(Situacao, on_delete=models.CASCADE, related_name='situacoes')
     causas = models.CharField('Causas', max_length=100)
     valor = models.DecimalField('Valor', max_digits=20, decimal_places=2)
 
@@ -33,7 +33,7 @@ class Causa(models.Model):
 
 
 class Acao(models.Model):
-    causas = models.ForeignKey(Causa, on_delete=models.CASCADE)
+    causas = models.ForeignKey(Causa, on_delete=models.CASCADE, related_name='causas')
     acao = models.CharField('Ação', max_length=100)
     valor = models.DecimalField('Valor', max_digits=20, decimal_places=2)
 
@@ -49,7 +49,7 @@ class DetalheAcao(models.Model):
         ('Andamento','Andamento'),
         ('Concluído','Concluído'),
         }
-    acao = models.ForeignKey(Acao, on_delete=CASCADE)
+    acao = models.ForeignKey(Acao, on_delete=CASCADE, related_name='acoes')
     detalhe = models.CharField('Detalhes', max_length=100)
     data = models.DateField('Data')
     status = models.CharField('Status', max_length = 100, choices=STATUS_CHOICES, default='Andamento')
