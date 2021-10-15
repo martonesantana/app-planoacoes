@@ -29,7 +29,7 @@ route.register(r'detalheacao', situacaoviewsets.DetalheAcaoViewSet, basename="De
 
 
 urlpatterns = [
-    path('', admin.site.urls),
+    
     path('app/', admin.site.urls),
     path('api/', include(route.urls)),
        
