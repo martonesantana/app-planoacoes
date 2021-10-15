@@ -19,7 +19,7 @@ class DetalheAcaoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class AcaoSerializer(serializers.ModelSerializer):
-    detalhes=DetalheAcaoSerializer(read_only=True, many=True)
+    acoes=DetalheAcaoSerializer(read_only=True, many=True)
     class Meta:
         model = models.Acao
         fields = '__all__'
