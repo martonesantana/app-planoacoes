@@ -9,11 +9,11 @@ class SituacaoAdmin(admin.ModelAdmin):
 
 @admin.register(Causa)
 class CausaAdmin(admin.ModelAdmin):
-    list_display = ('situacao', 'causas','valor')
+    list_display = ('causa','situacao','valor')
 
 @admin.register(Acao)
 class AcaoAdmin(admin.ModelAdmin):
-    list_display = ('acao', 'causas', 'valor')
+    list_display = ('acao', 'causa', 'valor')
 
 
 @admin.register(DetalheAcao)
