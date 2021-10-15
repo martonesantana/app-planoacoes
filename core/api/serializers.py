@@ -14,12 +14,13 @@ class AcaoSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 class CausaSerializer(serializers.ModelSerializer):
-    situacoes = AcaoSerializer(read_only=True, many=True)
+    detcausas = AcaoSerializer(read_only=True, many=True)
     class Meta:
         model = models.Causa
         fields = '__all__'
 
 class SituacaoSerializer(serializers.ModelSerializer):
+    situacoes = CausaSerializer(read_only=True, many=True)
     class Meta:
         model = models.Situacao
         fields = '__all__'
