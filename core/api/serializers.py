@@ -15,6 +15,7 @@ class CausaSerializer(serializers.ModelSerializer):
 
 
 class AcaoSerializer(serializers.ModelSerializer):
+    detcausas=CausaSerializer(read_only=True, many=True)
     class Meta:
         model = models.Acao
         fields = '__all__'
