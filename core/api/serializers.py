@@ -2,27 +2,24 @@ from rest_framework import fields, serializers
 from core import models
 
 
-class SituacaoSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Situacao
-        fields = '__all__'
-
-
-class CausaSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = models.Causa
-        fields = '__all__'
-
-
-class AcaoSerializer(serializers.ModelSerializer):
-    detcausas=CausaSerializer(read_only=True, many=True)
-    class Meta:
-        model = models.Acao
-        fields = '__all__'
-
 class DetalheAcaoSerializer(serializers.ModelSerializer):
-    acoes=AcaoSerializer(read_only=True, many=True)
     class Meta:
         model = models.DetalheAcao
         fields = '__all__'
 
+class AcaoSerializer(serializers.ModelSerializer):
+    acoes=DetalheAcaoSerializer(read_only=True, many=True)
+    class Meta:
+        model = models.Acao
+        fields = '__all__'
+
+class CausaSerializer(serializers.ModelSerializer):
+    situacoes = AcaoSerializer(read_only=True, many=True)
+    class Meta:
+        model = models.Causa
+        fields = '__all__'
+
+class SituacaoSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Situacao
+        fields = '__all__'
